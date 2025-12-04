@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eduard Sandu – Ventriloquo & Attore</title>
+  <meta name="description" content="Spettacoli di ventriloquismo, teatro e lezioni educative per bambini in Veneto.">
+  <style>
+    :root {
+      --bg: #0f172a;
+      --bg-light: #111827;
+      --accent: #f97316;
+      --accent-soft: #fed7aa;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --card: #020617;
+      --border: #1f2937;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1e293b 0, #020617 55%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(to bottom, rgba(15,23,42,0.95), rgba(15,23,42,0.75));
+      border-bottom: 1px solid rgba(31,41,55,0.7);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+      gap: 0.75rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #fed7aa, #fb923c 40%, #7c2d12 90%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.9rem;
+      color: #111827;
+      box-shadow: 0 0 18px rgba(248, 250, 252, 0.2);
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    /* Numele și subtitlul – cu același gradient ca „ventriloquismo & teatro” */
+    .logo-main {
+      font-size: 1.2rem;
+      font-weight: 800;
+      background: linear-gradient(to right, #f97316, #fde68a);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .logo-sub {
+      font-size: 0.95rem;
+      font-weight: 500;
+      background: linear-gradient(to right, #f97316, #fb923c);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .nav-main {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      position: relative;
+      color: var(--muted);
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -0.3rem;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(to right, #f97316, #fb923c);
+      border-radius: 999px;
+      transition: width 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      border: 1px solid rgba(251, 146, 60, 0.6);
+      background: radial-gradient(circle at top left, rgba(248, 250, 252, 0.12), transparent 55%);
+      color: var(--accent-soft);
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.1s ease;
+      box-shadow: 0 0 12px rgba(248, 250, 252, 0.08);
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.45);
+      background: radial-gradient(circle at top left, rgba(248, 250, 252, 0.18), rgba(248, 113, 22, 0.15));
+    }
+
+    .btn-outline {
+      border-color: rgba(156,163,175,0.6);
+      color: var(--muted);
+    }
+
+    .btn-outline:hover {
+      color: var(--text);
+    }
+
+    .nav-cta {
+      display: none;
+    }
+
+    @media (min-width: 900px) {
+      .nav-cta {
+        display: inline-flex;
+      }
+    }
+
+    main {
+      padding-bottom: 4rem;
+    }
+
+    section {
+      padding: 4rem 0;
+    }
+
+    section:nth-of-type(odd) {
+      background: rgba(15, 23, 42, 0);
+    }
+
+    section:nth-of-type(even) {
+      background: radial-gradient(circle at top, rgba(15,23,42,0.9), rgba(2,6,23,1));
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+    }
+
+    /* ========== HOME / HERO ========== */
+
+    .hero {
+      padding-top: 0;
+      padding-bottom: 4rem;
+    }
+
+    /* COVER – centrat, cu aceeași lățime ca conținutul (max 1120px) */
+    .cover-strip {
+      width: 100%;
+      max-width: 1120px;
+      height: 220px;
+      background-image: url("cover.jpg");
+      background-size: cover;
+      background-position: center;
+      border-radius: 24px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.7);
+      margin: 1rem auto 2.5rem auto;
+    }
+
+    @media (min-width: 900px) {
+      .cover-strip {
+        height: 280px;
+      }
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: 2.5rem;
+    }
+
+    @media (min-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1.2fr 1fr;
+        align-items: center;
+      }
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.18rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(251,146,60,0.5);
+      background: rgba(15,23,42,0.8);
+      color: var(--accent-soft);
+      font-size: 0.75rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #f97316;
+      box-shadow: 0 0 12px #f97316;
+    }
+
+    .hero-title {
+      font-size: clamp(2.1rem, 4vw, 2.8rem);
+      line-height: 1.1;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-highlight {
+      background: linear-gradient(to right, #f97316, #fde68a);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-text {
+      color: var(--muted);
+      font-size: 0.98rem;
+      max-width: 34rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      align-items: center;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-note {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-note strong {
+      color: var(--accent-soft);
+    }
+
+    /* Locandina – centrată, zoom la hover, click pentru a o deschide mare */
+    .poster-wrapper {
+      margin-top: 1.5rem;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 380px;        /* poți schimba aici mărimea afișului */
+      border-radius: 1.2rem;
+      border: 1px dashed rgba(148,163,184,0.7);
+      padding: 0.75rem;
+      background: radial-gradient(circle at top, rgba(15,23,42,0.95), rgba(15,23,42,0.9));
+    }
+
+    .poster-link {
+      display: block;
+      border-radius: 1rem;
+      overflow: hidden;
+    }
+
+    .poster-image {
+      width: 100%;
+      border-radius: 0.9rem;
+      border: 1px solid rgba(31,41,55,0.9);
+      box-shadow: 0 18px 45px rgba(0,0,0,0.9);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .poster-wrapper:hover .poster-image {
+      transform: scale(1.04);
+      box-shadow: 0 24px 60px rgba(0,0,0,1);
+    }
+
+    .hero-card {
+      background: radial-gradient(circle at top, #1f2937, #020617);
+      border-radius: 1.4rem;
+      padding: 1.4rem 1.3rem;
+      border: 1px solid rgba(31,41,55,0.9);
+      box-shadow: 0 22px 60px rgba(0,0,0,0.7);
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .hero-card::before {
+      content: '';
+      position: absolute;
+      inset: -60%;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(248,113,22,0.2), transparent 55%),
+        radial-gradient(circle at 100% 0%, rgba(59,130,246,0.16), transparent 55%);
+      opacity: 0.9;
+      mix-blend-mode: screen;
+      z-index: -1;
+    }
+
+    .hero-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+
+    .hero-avatar {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+
+    .hero-avatar-circle {
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #fee2e2, #f97316 40%, #7c2d12 90%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      color: #111827;
+      box-shadow: 0 0 18px rgba(248,250,252,0.4);
+      font-size: 1.3rem;
+    }
+
+    .hero-avatar-text {
+      display: flex;
+      flex-direction: column;
+      font-size: 0.8rem;
+    }
+
+    .hero-avatar-text strong {
+      font-size: 0.95rem;
+    }
+
+    .hero-tag {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.9);
+      border: 1px solid rgba(148,163,184,0.8);
+      color: var(--accent-soft);
+    }
+
+    .hero-list {
+      list-style: none;
+      font-size: 0.85rem;
+      display: grid;
+      gap: 0.5rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.4rem;
+    }
+
+    .hero-list-bullet {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #f97316;
+      margin-top: 0.35rem;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .hero-badge {
+      font-size: 0.7rem;
+      padding: 0.24rem 0.6rem;
+      border-radius: 999px;
+      border: 1px dashed rgba(148,163,184,0.7);
+      color: var(--accent-soft);
+      background: rgba(15,23,42,0.8);
+    }
+
+    .grid-3 {
+      display: grid;
+      gap: 1.6rem;
+    }
+
+    @media (min-width: 768px) {
+      .grid-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    .card {
+      background: linear-gradient(to bottom right, rgba(15,23,42,0.96), rgba(15,23,42,0.96));
+      border-radius: 1.2rem;
+      padding: 1.25rem 1.1rem;
+      border: 1px solid rgba(31,41,55,0.9);
+      box-shadow: 0 14px 40px rgba(0,0,0,0.7);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.72rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.95);
+      border: 1px solid rgba(55,65,81,0.9);
+      color: var(--accent-soft);
+      margin-bottom: 0.6rem;
+    }
+
+    .card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .card p {
+      font-size: 0.86rem;
+      color: var(--muted);
+      margin-bottom: 0.7rem;
+    }
+
+    .card ul {
+      list-style: none;
+      font-size: 0.82rem;
+      color: var(--muted);
+      display: grid;
+      gap: 0.25rem;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      border: 1px solid rgba(75,85,99,0.9);
+      color: var(--muted);
+      margin-top: 0.4rem;
+    }
+
+    .pill-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #f97316;
+    }
+
+    /* ========== PERSONAGGI ========== */
+
+    .character-grid {
+      display: grid;
+      gap: 1.6rem;
+    }
+
+    @media (min-width: 700px) {
+      .character-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+
+    .character-card {
+      background: linear-gradient(to bottom right, rgba(15,23,42,0.96), rgba(15,23,42,0.96));
+      border-radius: 1.2rem;
+      padding: 1rem 0.9rem 1.1rem;
+      border: 1px solid rgba(31,41,55,0.9);
+      box-shadow: 0 14px 40px rgba(0,0,0,0.7);
+      text-align: center;
+      font-size: 0.85rem;
+    }
+
+    .character-photo {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 0.9rem;
+      overflow: hidden;
+      border: 1px solid rgba(55,65,81,0.9);
+      margin-bottom: 0.6rem;
+      background: #020617;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .character-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .character-name {
+      font-weight: 600;
+      margin-bottom: 0.15rem;
+    }
+
+    .character-role {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    /* ========== CONTACT ========== */
+
+    .contact-grid {
+      display: grid;
+      gap: 2rem;
+    }
+
+    @media (min-width: 820px) {
+      .contact-grid {
+        grid-template-columns: 1.1fr 1fr;
+      }
+    }
+
+    .contact-info {
+      font-size: 0.9rem;
+      color: var(--muted);
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .contact-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .contact-item span:first-child {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #9ca3af;
+    }
+
+    .contact-item a {
+      color: var(--accent-soft);
+    }
+
+    form {
+      background: radial-gradient(circle at top, rgba(15,23,42,0.95), #020617);
+      padding: 1.3rem 1.1rem;
+      border-radius: 1.2rem;
+      border: 1px solid rgba(31,41,55,0.9);
+      box-shadow: 0 16px 45px rgba(0,0,0,0.75);
+      font-size: 0.85rem;
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.15rem;
+      font-size: 0.8rem;
+      color: #e5e7eb;
+    }
+
+    input, textarea {
+      width: 100%;
+      border-radius: 0.75rem;
+      border: 1px solid rgba(55,65,81,0.9);
+      background: #020617;
+      color: var(--text);
+      padding: 0.5rem 0.7rem;
+      font-size: 0.85rem;
+      outline: none;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #f97316;
+      box-shadow: 0 0 0 1px rgba(249,115,22,0.4);
+    }
+
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .form-footer {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    footer {
+      border-top: 1px solid rgba(31,41,55,0.8);
+      padding: 1.4rem 0 1.8rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    footer .footer-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    @media (min-width: 700px) {
+      footer .footer-inner {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+    }
+
+    .footer-links a:hover {
+      color: var(--accent-soft);
+    }
+
+    .mobile-top {
+      display: inline-block;
+      margin-top: 0.4rem;
+    }
+
+    @media (min-width: 700px) {
+      .mobile-top {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <div class="logo-mark">E</div>
+        <div class="logo-text">
+          <div class="logo-main">Eduard Sandu</div>
+          <div class="logo-sub">Ventriloquo &amp; Attore</div>
+        </div>
+      </div>
+
+      <div class="nav-main">
+        <nav class="nav-links">
+          <a href="#home">Home</a>
+          <a href="#about">Chi sono</a>
+          <a href="#shows">Spettacoli</a>
+          <a href="#characters">Personaggi</a>
+          <a href="#lessons">Lezioni &amp; corsi</a>
+          <a href="#contact">Contatti</a>
+        </nav>
+
+        <a href="#contact" class="btn nav-cta">
+          Prenota uno spettacolo
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HOME / HERO -->
+    <section id="home" class="hero">
+      <!-- Cover centrat, aceeași lățime ca restul site-ului -->
+      <div class="cover-strip"></div>
+
+      <div class="container hero-grid">
+        <!-- Text + CTA + Afiș -->
+        <div>
+          <div class="badge">
+            <span class="badge-dot"></span>
+            <span>Spettacoli vivi con pupazzi… e un po' di magia.</span>
+          </div>
+
+          <h1 class="hero-title">
+            Spettacoli di <span class="hero-highlight">ventriloquismo &amp; teatro</span>
+            per bambini e famiglie in Veneto.
+          </h1>
+
+          <p class="hero-text">
+            Sono Eduard Sandu, ventriloquo e attore. In scena porto pupazzi curiosi, storie divertenti
+            e lezioni educative pensate per scuole, biblioteche, teatri, eventi privati e feste per bambini.
+          </p>
+
+          <div class="hero-cta">
+            <a href="#contact" class="btn">Richiedi disponibilità</a>
+            <a href="#shows" class="btn btn-outline">Vedi gli spettacoli</a>
+          </div>
+
+          <p class="hero-note">
+            <strong>Zona:</strong> Vicenza – Marostica – Bassano del Grappa – Veneto (e dintorni).
+          </p>
+
+          <!-- Locandina cliccabile cu zoom -->
+          <div class="poster-wrapper">
+            <a href="poster.jpg" target="_blank" class="poster-link">
+              <img src="poster.jpg" alt="Locandina spettacolo" class="poster-image">
+            </a>
+          </div>
+        </div>
+
+        <!-- Card dreapta -->
+        <aside class="hero-card" aria-label="Panoramica spettacoli">
+          <div class="hero-card-header">
+            <div class="hero-avatar">
+              <div class="hero-avatar-circle">R</div>
+              <div class="hero-avatar-text">
+                <strong>Romeo &amp; amici</strong>
+                <span>Le marionette di Eduard</span>
+              </div>
+            </div>
+            <span class="hero-tag">Spettacolo per bambini</span>
+          </div>
+
+          <ul class="hero-list">
+            <li>
+              <span class="hero-list-bullet"></span>
+              <span>
+                <strong>Spettacoli interattivi</strong> dove i bambini parlano, ridono e partecipano alla storia.
+              </span>
+            </li>
+            <li>
+              <span class="hero-list-bullet"></span>
+              <span>
+                <strong>Lezioni educative</strong> con Romeo, Luigi, Rocco e gli altri personaggi su amicizia, emozioni e buone maniere.
+              </span>
+            </li>
+            <li>
+              <span class="hero-list-bullet"></span>
+              <span>
+                <strong>Format flessibile</strong> per scuole, biblioteche, centri estivi, teatri e feste private.
+              </span>
+            </li>
+          </ul>
+
+          <div class="hero-badges">
+            <span class="hero-badge">Ideale 6–12 anni</span>
+            <span class="hero-badge">Italiano / Rumeno</span>
+            <span class="hero-badge">Adattabile allo spazio</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container">
+        <h2 class="section-title">Chi sono</h2>
+        <p class="section-subtitle">
+          Attore, ventriloquo e autore di spettacoli per bambini e adulti.
+        </p>
+        <div class="grid-3">
+          <div class="card">
+            <div class="card-tag">
+              Ventriloquio &amp; teatro
+            </div>
+            <h3>Eduard Sandu</h3>
+            <p>
+              Sono un ventriloquo e attore nato in Romania e residente in Italia. 
+              Amo unire la comicità con temi educativi, usando le marionette per parlare 
+              ai bambini in modo semplice, chiaro e divertente.
+            </p>
+            <p>
+              In scena porto personaggi come <strong>Romeo</strong>, <strong>Giuseppe</strong>, 
+              <strong>Coco</strong>, <strong>Luigi</strong>, <strong>Susie</strong>, <strong>Tonino</strong>, <strong>Rocco</strong> e <strong>La Pizza parlante</strong>,
+              ognuno con il proprio carattere, voce e umorismo.
+            </p>
+            <div class="pill">
+              <span class="pill-dot"></span>
+              <span>Spettacoli in italiano e rumeno</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-tag">
+              Esperienza
+            </div>
+            <h3>Esperienza in TV e teatro</h3>
+            <p>
+              Ho partecipato a talent show televisivi e collaborato con teatri e associazioni culturali,
+              portando il ventriloquismo davanti a migliaia di spettatori, grandi e piccoli.
+            </p>
+            <ul>
+              <li>Spettacoli per scuole e biblioteche</li>
+              <li>Eventi in teatri e spazi culturali</li>
+              <li>Performance per feste e ricorrenze</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="card-tag">
+              Didattica
+            </div>
+            <h3>Progetti educativi</h3>
+            <p>
+              Ho creato il progetto <strong>“Lezioni con le Marionette di Eduard”</strong>, un ciclo di incontri
+              pensato per aiutare i bambini a conoscere meglio se stessi, gli altri e il mondo.
+            </p>
+            <ul>
+              <li>Identità e autostima</li>
+              <li>Emozioni e amicizia</li>
+              <li>Rispetto, natura, sicurezza</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PERSONAGGI -->
+    <section id="characters">
+      <div class="container">
+        <h2 class="section-title">Personaggi</h2>
+        <p class="section-subtitle">
+          Le marionette e i personaggi che mi accompagnano in scena – ognuno con voce, carattere e storia propria.
+        </p>
+
+        <div class="character-grid">
+          <!-- Romeo -->
+          <div class="character-card">
+            <div class="character-photo">
+              <img src="romeo.jpg" alt="Romeo">
+            </div>
+            <div class="character-name">Romeo</div>
+            <div class="character-role">
+              Il Bambino Curioso e Birichino riesce sempre a sorprendere il pubblico e a farlo ridere a crepapelle.
+            </div>
+          </div>
+
+          <!-- Giuseppe -->
+          <div class="character-card">
+            <div class="character-photo">
+              <img src="giuseppe.jpg" alt="Giuseppe">
+            </div>
+            <div class="character-name">Giuseppe</div>
+            <div class="character-role">
+              Il Vecchietto Simpatico e Burlone con un sorriso contagioso e un’ironia irresistibile.
+            </div>
+          </div>
+
+          <!-- Coco -->
+          <div class="character-card">
+            <div class="character-photo">
+              <img src="coco.jpg" alt="Coco">
+            </div>
+            <div class="character-name">Coco</div>
+            <div class="character-role">
+              Un pappagallo colorato, vivace e pieno di energia!
+            </div>
+          </div>
+
+          <!-- Luigi -->
+          <div class="character-card">
+            <div class="character-photo">
+              <img src="luigi.jpg" alt="Luigi">
+            </div>
+            <div class="character-name">Luigi</div>
+            <div class="character-role">
+              Un orangotango simpaticissimo, con un’energia esplosiva e una personalità travolgente!
+            </div>
+          </div>
+
+          <!-- Susie -->
+          <div class="character-card">
+            <div class="character-photo">
+              <img src="susie.jpg" alt="Susie">
+            </div>
+            <div class="character-name">Susie</div>
+            <div class="character-role">
+              La Star della Cucina, canta mentre cucina e ha sempre una battuta pronta, anche quando combina qualche disastro tra i fornelli!
+            </div>
+          </div>
+
+          <!-- Tonino -->
+          <div class="character-card">
+            <div class="character-photo">
+              <img src="tonino.jpg" alt="Tonino">
+            </div>
+            <div class="character-name">Tonino</div>
+            <div class="character-role">
+              L’Allenatore Simpatico e Scatenato! Ogni allenamento diventa uno show divertentissimo!
+            </div>
+          </div>
+
+          <!-- Rocco -->
+          <div class="character-card">
+            <div class="character-photo">
+              <img src="rocco.jpg" alt="Rocco">
+            </div>
+            <div class="character-name">Rocco</div>
+            <div class="character-role">
+              Una tartaruga con un grande sogno: diventare una vera Tartaruga Ninja!
+            </div>
+          </div>
+
+          <!-- La Pizza parlante -->
+          <div class="character-card">
+            <div class="character-photo">
+              <img src="pizza-parlante.jpg" alt="La Pizza parlante">
+            </div>
+            <div class="character-name">La Pizza parlante</div>
+            <div class="character-role">
+              Si offende se qualcuno mette l’ananas su una pizza!
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SHOWS -->
+    <section id="shows">
+      <div class="container">
+        <h2 class="section-title">Spettacoli di ventriloquismo</h2>
+        <p class="section-subtitle">
+          Format flessibili per scuole, biblioteche, teatri, centri estivi, eventi privati e feste per bambini.
+        </p>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="card-tag">
+              Spettacolo interattivo
+            </div>
+            <h3>“Burattini Birichini”</h3>
+            <p>
+              Uno spettacolo comico e dinamico in cui pupazzi curiosi fanno domande, combinano guai
+              e imparano, insieme ai bambini, cosa significa essere gentili, onesti e coraggiosi.
+            </p>
+            <ul>
+              <li>Durata: 45–60 minuti</li>
+              <li>Ideale per scuole primarie e feste</li>
+              <li>Pochi requisiti tecnici – adattabile</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="card-tag">
+              Format educativo
+            </div>
+            <h3>“Lezioni con le Marionette di Eduard”</h3>
+            <p>
+              Una serie di incontri dove ogni lezione ha un tema chiaro: emozioni, amicizia, natura, 
+              regole della strada, buone maniere… sempre con il supporto delle marionette.
+            </p>
+            <ul>
+              <li>Da 1 a 20 incontri tematici</li>
+              <li>Perfetto per scuole, biblioteche, centri educativi</li>
+              <li>Possibilità di adattare il programma</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="card-tag">
+              Eventi &amp; feste
+            </div>
+            <h3>Show per eventi speciali</h3>
+            <p>
+              Un mix di sketch comici, momenti musicali e interazione con il pubblico, 
+              adatto a compleanni, feste aziendali per famiglie, sagre e manifestazioni locali.
+            </p>
+            <ul>
+              <li>Durata e contenuti personalizzabili</li>
+              <li>Possibilità di integrare messaggi specifici (tema della festa, valori, ecc.)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LESSONS & COURSES -->
+    <section id="lessons">
+      <div class="container">
+        <h2 class="section-title">Lezioni &amp; corsi</h2>
+        <p class="section-subtitle">
+          Laboratori per bambini, ragazzi e, su richiesta, percorsi introduttivi al ventriloquismo e al teatro.
+        </p>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="card-tag">
+              Per scuole e biblioteche
+            </div>
+            <h3>Laboratori educativi con marionette</h3>
+            <p>
+              Incontri in cui le marionette aiutano i bambini a parlare di emozioni, paure, sogni
+              e relazioni. Il linguaggio del teatro rende tutto più semplice e meno “serio”, ma molto profondo.
+            </p>
+            <ul>
+              <li>Adatto 6–12 anni</li>
+              <li>Durata: 60–90 minuti</li>
+              <li>Piccoli gruppi o classi intere</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="card-tag">
+              Teatro &amp; voce
+            </div>
+            <h3>Introduzione al ventriloquismo</h3>
+            <p>
+              Su richiesta, percorsi base per bambini e ragazzi curiosi di scoprire 
+              il mondo del ventriloquismo, della voce e della costruzione del personaggio.
+            </p>
+            <ul>
+              <li>Esercizi di voce e dizione</li>
+              <li>Relazione tra attore e pupazzo</li>
+              <li>Piccole scene create insieme</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="card-tag">
+              Progetti personalizzati
+            </div>
+            <h3>Collaborazioni con scuole &amp; enti</h3>
+            <p>
+              Possiamo costruire insieme un progetto su misura per il vostro istituto o associazione:
+              spettacoli + laboratori, cicli tematici, percorsi annuali.
+            </p>
+            <ul>
+              <li>Incontri di progettazione con gli insegnanti</li>
+              <li>Obiettivi educativi chiari</li>
+              <li>Materiale didattico a supporto</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section>
+      <div class="container">
+        <h2 class="section-title">Cosa dicono di noi</h2>
+        <p class="section-subtitle">
+          Alcuni commenti da insegnanti, genitori e bambini (testi di esempio – puoi sostituirli con i tuoi).
+        </p>
+        <div class="grid-3">
+          <div class="card">
+            <p>
+              “I bambini hanno riso, partecipato e poi, il giorno dopo, parlavano ancora di Romeo
+              e di quello che avevano imparato sulle emozioni.”
+            </p>
+            <div class="pill">
+              <span class="pill-dot"></span>
+              <span>Insegnante di scuola primaria</span>
+            </div>
+          </div>
+          <div class="card">
+            <p>
+              “Spettacolo divertente ma anche molto delicato: le marionette hanno aiutato
+              anche i più timidi a uscire dal guscio.”
+            </p>
+            <div class="pill">
+              <span class="pill-dot"></span>
+              <span>Bibliotecaria</span>
+            </div>
+          </div>
+          <div class="card">
+            <p>
+              “Mi è piaciuto quando la tartaruga Rocco parlava piano piano e ci spiegava che
+              non è importante essere veloci, ma andare avanti.”
+            </p>
+            <div class="pill">
+              <span class="pill-dot"></span>
+              <span>Bambino, 9 anni</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+        <h2 class="section-title">Contatti &amp; prenotazioni</h2>
+        <p class="section-subtitle">
+          Scrivimi per informazioni su spettacoli, laboratori, progetti con scuole o eventi privati.
+        </p>
+
+        <div class="contact-grid">
+          <div class="contact-info">
+            <div class="contact-item">
+              <span>Email</span>
+              <!-- SCHIMBĂ CU EMAILUL TĂU REAL -->
+              <a href="mailto:sanduedy@libero.it">
+                sanduedy@libero.it
+              </a>
+            </div>
+            <div class="contact-item">
+              <span>Telefono / WhatsApp</span>
+              <!-- SCHIMBĂ CU NUMĂRUL TĂU REAL -->
+              <a href="tel:+39 3792199352">
+                +39 3792199352
+              </a>
+            </div>
+            <div class="contact-item">
+              <span>Zona principale</span>
+              <span>
+                Marostica – Bassano del Grappa – Vicenza – Veneto
+              </span>
+            </div>
+            <div class="contact-item">
+              <span>Lingue</span>
+              <span>
+                Italiano, Rumeno (possibilità di spettacoli bilingui)
+              </span>
+            </div>
+            <div class="contact-item">
+              <span>Social</span>
+              <span>
+                YouTube, Facebook, TikTok 
+              </span>
+            </div>
+          </div>
+
+          <form action="mailto:eduard.sandu@example.com" method="post" enctype="text/plain">
+            <div>
+              <label for="name">Nome e cognome *</label>
+              <input type="text" id="name" name="Nome" required />
+            </div>
+            <div>
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="Email" required />
+            </div>
+            <div>
+              <label for="type">Tipo di richiesta</label>
+              <input
+                type="text"
+                id="type"
+                name="Tipo di richiesta"
+                placeholder="Spettacolo, laboratorio, evento privato..."
+              />
+            </div>
+            <div>
+              <label for="message">Messaggio *</label>
+              <textarea id="message" name="Messaggio" required></textarea>
+            </div>
+            <button type="submit" class="btn" style="width: 100%; margin-top: 0.4rem;">
+              Invia richiesta
+            </button>
+            <p class="form-footer">
+              Compilando questo modulo invii una email diretta. Per richieste urgenti usa anche WhatsApp.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        <span>©</span>
+        <span id="year"></span>
+        <span>
+          &nbsp;Eduard Sandu – Ventriloquo &amp; Attore.
+        </span>
+        <span class="mobile-top">
+          <a href="#home">Torna su ↑</a>
+        </span>
+      </div>
+      <div class="footer-links">
+        <a href="#shows">Spettacoli</a>
+        <a href="#lessons">Lezioni &amp; corsi</a>
+        <a href="#contact">Contatti</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
