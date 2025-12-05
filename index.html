@@ -572,7 +572,7 @@
     .contact-grid {
       display: grid;
       gap: 1.8rem;
-      justify-items: center; /* totul pe mijloc */
+      justify-items: center;
     }
 
     .contact-info {
@@ -580,8 +580,8 @@
       color: var(--muted);
       display: grid;
       gap: 0.9rem;
-      text-align: center;      /* text centrat */
-      max-width: 520px;        /* un pic mai strâns */
+      text-align: center;
+      max-width: 520px;
     }
 
     .contact-item {
@@ -597,14 +597,19 @@
       color: #9ca3af;
     }
 
+    /* linia cu email + telefon – galben, selectabilă, cu link înăuntru */
     .contact-main {
-      font-size: 1.05rem;      /* un pic mai mare */
+      font-size: 1.05rem;
       font-weight: 600;
-      color: var(--accent-soft);
+      background: linear-gradient(to right, #f97316, #fde68a);
+      -webkit-background-clip: text;
+      color: transparent;
+      user-select: text;   /* copy–paste ușor */
     }
 
-    .contact-item a {
+    .contact-main a {
       color: inherit;
+      text-decoration: none;
     }
 
     .contact-note {
@@ -1099,15 +1104,17 @@
           <div class="contact-info">
             <div class="contact-item">
               <span>Email</span>
-              <a href="mailto:sanduedy@libero.it" class="contact-main">
-                Invia una mail: sanduedy@libero.it
-              </a>
+              <div class="contact-main">
+                Invia una mail:
+                <a href="mailto:sanduedy@libero.it"> sanduedy@libero.it</a>
+              </div>
             </div>
             <div class="contact-item">
               <span>Telefono / WhatsApp</span>
-              <a href="https://wa.me/393792199352" target="_blank" class="contact-main">
-                Scrivi o chiama questo numero: +39 379 219 9352
-              </a>
+              <div class="contact-main">
+                Scrivi o chiama questo numero:
+                <a href="https://wa.me/393792199352" target="_blank"> +39 379 219 9352</a>
+              </div>
             </div>
             <div class="contact-item">
               <span>Zona principale</span>
