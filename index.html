@@ -1180,39 +1180,51 @@
             </div>
           </div>
 
-          <form action="mailto:eduard.sandu@example.com" method="post" enctype="text/plain">
-            <div>
-              <label for="name">Nome e cognome *</label>
-              <input type="text" id="name" name="Nome" required />
-            </div>
-            <div>
-              <label for="email">Email *</label>
-              <input type="email" id="email" name="Email" required />
-            </div>
-            <div>
-              <label for="type">Tipo di richiesta</label>
-              <input
-                type="text"
-                id="type"
-                name="Tipo di richiesta"
-                placeholder="Spettacolo, laboratorio, evento privato..."
-              />
-            </div>
-            <div>
-              <label for="message">Messaggio *</label>
-              <textarea id="message" name="Messaggio" required></textarea>
-            </div>
-            <button type="submit" class="btn" style="width: 100%; margin-top: 0.4rem;">
-              Invia richiesta
-            </button>
-            <p class="form-footer">
-              Compilando questo modulo invii una email diretta. Per richieste urgenti usa anche WhatsApp.
-            </p>
-          </form>
+          <!-- FORMULAR CU FORMSPREE -->
+      <form action="https://formspree.io/f/mjknoooo" method="POST">
+        <div>
+          <label for="name">Nome e cognome *</label>
+          <input type="text" id="name" name="Nome e cognome" required />
         </div>
-      </div>
-    </section>
-  </main>
+
+        <div>
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="Email" required />
+        </div>
+
+        <div>
+          <label for="type">Tipo di richiesta</label>
+          <input
+            type="text"
+            id="type"
+            name="Tipo di richiesta"
+            placeholder="Spettacolo, laboratorio, evento privato..."
+          />
+        </div>
+
+        <div>
+          <label for="message">Messaggio *</label>
+          <textarea id="message" name="Messaggio" required></textarea>
+        </div>
+
+        <!-- câmp opțional: subiect predefinit în email -->
+        <input type="hidden" name="_subject" value="Nuovo messaggio dal sito eduardsandu.it">
+
+        <!-- câmp opțional: redirect după trimitere (de exemplu o pagină thank you) -->
+        <!-- <input type="hidden" name="_redirect" value="https://eduardsandu.it/grazie.html"> -->
+
+        <button type="submit" class="btn" style="width: 100%; margin-top: 0.4rem;">
+          Invia richiesta
+        </button>
+
+        <p class="form-footer">
+          Compilando questo modulo il tuo messaggio verrà inviato direttamente alla mia email.
+          Riceverai una risposta il prima possibile.
+        </p>
+      </form>
+    </div>
+  </div>
+</section>
 
   <!-- FOOTER -->
   <footer>
