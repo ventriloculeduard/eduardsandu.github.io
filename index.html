@@ -60,7 +60,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.75rem 0;
+      padding: 0.55rem 0;
       gap: 0.75rem;
     }
 
@@ -109,7 +109,7 @@
     .nav-main {
       display: flex;
       align-items: center;
-      gap: 1.25rem;
+      gap: 1rem;
     }
 
     .nav-links {
@@ -182,6 +182,27 @@
     @media (min-width: 900px) {
       .nav-cta {
         display: inline-flex;
+      }
+    }
+
+    /* NAV pe telefon: logo sus, meniu + buton dedesubt, font mai mic */
+
+    @media (max-width: 720px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-main {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        row-gap: 0.25rem;
+        column-gap: 0.9rem;
+        font-size: 0.8rem;
       }
     }
 
@@ -597,14 +618,13 @@
       color: #9ca3af;
     }
 
-    /* linia cu email + telefon – galben, selectabilă, cu link înăuntru */
     .contact-main {
       font-size: 1.05rem;
       font-weight: 600;
       background: linear-gradient(to right, #f97316, #fde68a);
       -webkit-background-clip: text;
       color: transparent;
-      user-select: text;   /* copy–paste ușor */
+      user-select: text;
     }
 
     .contact-main a {
@@ -685,7 +705,6 @@
           <a href="#shows">Spettacoli</a>
           <a href="#characters">Personaggi</a>
           <a href="#lessons">Lezioni &amp; corsi</a>
-          <a href="#contact">Contatti</a>
         </nav>
 
         <a href="#contact" class="btn nav-cta">
