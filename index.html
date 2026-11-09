@@ -270,6 +270,28 @@
       background: radial-gradient(circle at top, rgba(15,23,42,0.9), rgba(2,6,23,1));
     }
 
+    .video-wrapper {
+      width: min(100%, 900px);
+      aspect-ratio: 16 / 9;
+      margin: 0 auto 1.5rem auto;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.45);
+      background: #020617;
+    }
+
+    .video-wrapper iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .video-link {
+      text-align: center;
+    }
+
     .section-title {
       font-size: 1.6rem;
       margin-bottom: 0.3rem;
@@ -835,6 +857,32 @@
             <span class="hero-badge">Adattabile allo spazio</span>
           </div>
         </aside>
+      </div>
+    </section>
+
+
+    <!-- VIDEO YOUTUBE -->
+    <section id="video">
+      <div class="container">
+        <h2 class="section-title">Guarda un estratto del mio spettacolo</h2>
+        <p class="section-subtitle">
+          Risate, personaggi e momenti speciali con Eduard e le sue marionette.
+        </p>
+        <div class="video-wrapper">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/k9NDQAk2rnU"
+            title="Estratto dello spettacolo di ventriloquismo di Eduard Sandu"
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <p class="video-link">
+          <a class="btn btn-outline" href="https://youtu.be/k9NDQAk2rnU" target="_blank" rel="noopener noreferrer">
+            Guarda altri video su YouTube
+          </a>
+        </p>
       </div>
     </section>
 
